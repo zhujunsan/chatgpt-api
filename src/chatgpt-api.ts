@@ -451,7 +451,7 @@ export class ChatGPTAPI {
         break
       case 'gpt-4':
       case 'gpt-4-0314':
-        tokens_per_message = 3
+        tokens_per_message = 4
         tokens_per_name = 1
         break
     }
