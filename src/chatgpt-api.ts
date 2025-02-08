@@ -185,7 +185,8 @@ export class ChatGPTAPI {
       id: uuidv4(),
       conversationId,
       parentMessageId: messageId,
-      text: ''
+      text: '',
+      reasoningText: '',
     }
 
     const responseP = new Promise<types.ChatMessage>(
@@ -244,6 +245,7 @@ export class ChatGPTAPI {
                     const delta = response.choices[0].delta
                     result.delta = delta.content
                     if (delta?.content) result.text += delta.content
+                    if (delta?.reasoning_content) result.reasoningText += delta.reasoning_content
 
                     if (delta.role) {
                       result.role = delta.role

@@ -73,6 +73,7 @@ export interface ChatMessage {
           url: string
         }
       }[]
+  reasoningText?: string
   role: Role
   name?: string
   delta?: string
@@ -208,6 +209,7 @@ export namespace openai {
         delta: {
           role: Role
           content?: string
+          reasoning_content?: string
         }
         index: number
         finish_reason: string | null
